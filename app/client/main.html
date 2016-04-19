@@ -3,13 +3,14 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <h1>WeOU</h1>
+  <div class="container">
+    {{> account }}
 
-  {{> account }}
+    {{> transactions }}
 
-  {{> transactions }}
-
-  {{> lastblock}}
+    {{> lastblock}}
+  </div>
 
 </body>
 
@@ -30,6 +31,9 @@
 
 <template name="lastblock">
   <div class="panel panel-default">
+    <div class="panel-heading">
+      Last Block
+    </div>
     <div class="panel-body">
 {{#markdown}}
 ```
@@ -42,26 +46,78 @@
 
 <template name="account">
   <div class="panel panel-default">
+    <div class="panel-heading">
+      Balance
+    </div>
     <div class="panel-body">
       <div class="container">
-          <input id="account" class="form-control" placeholder="account number" value="0x158663Db1E4cDD3Df1220677371140a0B2068F6D">
-      </div>
-      <div class="container">
-        Balance: {{balance}}
+        <div class="input-group">
+        <div class="input-group-btn">
+          <span class="input-group-addon" id="sizing-addon2">From:</span>
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@ <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              {{#each account}}
+                <li><a href="#" class="accountnb">{{accountnb}}</a></li>
+              {{/each}}
+            </ul>
+            </div><!-- /btn-group -->
+          </div>
+        <input id="account" class="form-control" placeholder="account number" value="0x158663Db1E4cDD3Df1220677371140a0B2068F6D">
+        <span class="input-group-addon" id="sizing-addon2">{{balance}} E</span>
       </div>
     </div>
+    <div class="container">
+      <div class="input-group">
+      <div class="input-group-btn">
+        <span class="input-group-addon" id="sizing-addon2">To:</span>
+        <div class="input-group-btn">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@ <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            {{#each account}}
+              <li><a href="#" class="accountnb2">{{accountnb}}</a></li>
+            {{/each}}
+          </ul>
+          </div><!-- /btn-group -->
+        </div>
+      <input id="account2" class="form-control" placeholder="account number" value="0x158663Db1E4cDD3Df1220677371140a0B2068F6D">
+      <span class="input-group-addon" id="sizing-addon2">{{balance2}} E</span>
+    </div>
+  </div>
+  <div class="container">
+  <div class="col-xs-6">
+    <div class="input-group">
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-primary" id="transfer">Transfer</button>
+      </div>
+      <input id="amount" class="form-control" placeholder="amount">
+      <span class="input-group-addon" id="sizing-addon2">E</span>
+    </div>
+  </div>
+  </div>
+  </div>
   </div>
 </template>
 
 
 <template name="transactions">
   <div class="panel panel-default">
+    <div class="panel-heading">
+      Past Transactions
+    </div>
     <div class="panel-body">
       {{#each transaction}}
-        from: {{from}}
-        to: {{to}}
-        amount: {{value}}
+        <div class="container">
+          <strong>from:</strong> {{from}}<br>
+          <strong>to:</strong> {{to}}<br>
+          <strong>amount:</strong> {{value}}<br>
+        <hr>
+        </div>
       {{/each}}
     </div>
   </div>
+</template>
+
+<template name="transfer">
+
 </template>

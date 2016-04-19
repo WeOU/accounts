@@ -31,3 +31,4 @@ session
 simple:highlight.js
 chuangbo:marked
 twbs:bootstrap
+frozeman:persistent-minimongo
