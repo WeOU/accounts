@@ -5,8 +5,12 @@
 <body>
   <h1>Welcome to Meteor!</h1>
 
-  {{> hello}}
-  {{> info}}
+  {{> account }}
+
+  {{> transactions }}
+
+  {{> lastblock}}
+
 </body>
 
 <template name="hello">
@@ -22,4 +26,42 @@
     <li><a href="https://docs.meteor.com">Read the Docs</a></li>
     <li><a href="https://forums.meteor.com">Discussions</a></li>
   </ul>
+</template>
+
+<template name="lastblock">
+  <div class="panel panel-default">
+    <div class="panel-body">
+{{#markdown}}
+```
+{{{block}}}
+```
+{{/markdown}}
+    </div>
+  </div>
+</template>
+
+<template name="account">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="container">
+          <input id="account" class="form-control" placeholder="account number" value="0x158663Db1E4cDD3Df1220677371140a0B2068F6D">
+      </div>
+      <div class="container">
+        Balance: {{balance}}
+      </div>
+    </div>
+  </div>
+</template>
+
+
+<template name="transactions">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      {{#each transaction}}
+        from: {{from}}
+        to: {{to}}
+        amount: {{value}}
+      {{/each}}
+    </div>
+  </div>
 </template>
