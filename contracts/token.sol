@@ -16,7 +16,6 @@ contract MyToken{
   }
 
   function transfer(address _to, uint256 _amount) {
-    // TODO add a test if there is enough tokens in the sender account
     if (balanceOf[msg.sender] < _amount) throw;     // throw is cancelling the transaction and return the gas to the sender
     balanceOf[msg.sender] -= _amount;
     balanceOf[_to] += _amount;
