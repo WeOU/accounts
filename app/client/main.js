@@ -24,6 +24,7 @@ Template.account.helpers({
 
   balance: () => TokenInstance.balanceOf(Session.get('account')).toString(10),
   balance2: () => TokenInstance.balanceOf(Session.get('account2')).toString(10),
+  sign: () => TokenInstance.symbol(),
 });
 
 Template.account.events({
