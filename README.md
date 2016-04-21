@@ -1,7 +1,8 @@
-# accounts
-A simple Ethereum token account WebUI
+# Token
+A simple Ethereum token account WebUI.
 
-The WebUI code is based on meteor and the smart contract on solidity
+The WebUI code is based on meteor and the smart contract on solidity.
+The smart contract was developed as a tutorial during a [Copenhagen Meetup](http://www.meetup.com/Copenhagen-Ethereum-Meetup/events/229827178/).
 
 ## Installing
 You need to install an ethereum client. Geth was used
