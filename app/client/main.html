@@ -1,33 +1,19 @@
 <head>
-  <title>simple</title>
+  <title>Ethereum-CPH Token</title>
 </head>
 
 <body>
-  <h1>WeOU</h1>
   <div class="container">
-    {{> account }}
+    <h1>Ethereum-CPH Token</h1>
 
-    {{> transactions }}
+      {{> account }}
 
-    {{> lastblock}}
+      {{> transactions }}
+
+      {{> lastblock}}
   </div>
 
 </body>
-
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
-
-<template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try">Do the Tutorial</a></li>
-    <li><a href="http://guide.meteor.com">Follow the Guide</a></li>
-    <li><a href="https://docs.meteor.com">Read the Docs</a></li>
-    <li><a href="https://forums.meteor.com">Discussions</a></li>
-  </ul>
-</template>
 
 <template name="lastblock">
   <div class="panel panel-default">
@@ -50,52 +36,55 @@
       Balance
     </div>
     <div class="panel-body">
-      <div class="container">
-        <div class="input-group">
-        <div class="input-group-btn">
-          <span class="input-group-addon" id="sizing-addon2">From:</span>
+      <!-- FROM -->
+        <div class="col-md-4">
+          <div class="input-group">
           <div class="input-group-btn">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@ <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              {{#each account}}
-                <li><a href="#" class="accountnb">{{accountnb}}</a></li>
-              {{/each}}
-            </ul>
+            <span class="input-group-addon" id="sizing-addon2">From:</span>
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@ <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                {{#each account}}
+                  <li><a href="#" class="accountnb">{{accountnb}}</a></li>
+                {{/each}}
+              </ul>
             </div><!-- /btn-group -->
           </div>
-        <input id="account" class="form-control" placeholder="account number" value="0x158663Db1E4cDD3Df1220677371140a0B2068F6D">
-        <span class="input-group-addon" id="sizing-addon2">{{balance}} E</span>
-      </div>
-    </div>
-    <div class="container">
-      <div class="input-group">
-      <div class="input-group-btn">
-        <span class="input-group-addon" id="sizing-addon2">To:</span>
-        <div class="input-group-btn">
-          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@ <span class="caret"></span></button>
-          <ul class="dropdown-menu">
-            {{#each account}}
-              <li><a href="#" class="accountnb2">{{accountnb}}</a></li>
-            {{/each}}
-          </ul>
-          </div><!-- /btn-group -->
+          <input id="account" class="form-control" placeholder="account number" value="0x158663Db1E4cDD3Df1220677371140a0B2068F6D">
+          <span class="input-group-addon" id="sizing-addon2">{{balance}} {{sign}}</span>
         </div>
-      <input id="account2" class="form-control" placeholder="account number" value="0x158663Db1E4cDD3Df1220677371140a0B2068F6D">
-      <span class="input-group-addon" id="sizing-addon2">{{balance2}} E</span>
-    </div>
-  </div>
-  <div class="container">
-  <div class="col-xs-6">
-    <div class="input-group">
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-primary" id="transfer">Transfer</button>
       </div>
-      <input id="amount" class="form-control" placeholder="amount">
-      <span class="input-group-addon" id="sizing-addon2">E</span>
+
+      <!-- TO -->
+      <div class="col-md-4">
+        <div class="input-group">
+          <div class="input-group-btn">
+            <span class="input-group-addon" id="sizing-addon2">To:</span>
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@ <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                {{#each account}}
+                  <li><a href="#" class="accountnb2">{{accountnb}}</a></li>
+                {{/each}}
+              </ul>
+            </div>
+          </div>
+          <input id="account2" class="form-control" placeholder="account number" value="0x158663Db1E4cDD3Df1220677371140a0B2068F6D">
+          <span class="input-group-addon" id="sizing-addon2">{{balance2}} {{sign}}</span>
+        </div>
+      </div>
+
+      <!-- Transfer -->
+      <div class="col-md-3">
+        <div class="input-group">
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-primary" id="transfer">Transfer</button>
+          </div>
+          <input id="amount" class="form-control" placeholder="amount"  type="number" value="1">
+          <span class="input-group-addon" id="sizing-addon2">{{sign}}</span>
+        </div>
+      </div>
     </div>
-  </div>
-  </div>
-  </div>
   </div>
 </template>
 
@@ -116,8 +105,4 @@
       {{/each}}
     </div>
   </div>
-</template>
-
-<template name="transfer">
-
 </template>
