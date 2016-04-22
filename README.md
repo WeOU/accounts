@@ -28,7 +28,7 @@ In another console window you can start the webapp
 In order to make transactions you need to unlock one of your accounts.
 You could for instance start geth with one of your account unlocked:
 
-  $ geth --fast --testnet --rpc --rpccorsdomain "http://localhost:3000" --unlock 0x000whateverisyouraccountpublickey
+    $ geth --fast --testnet --rpc --rpccorsdomain "http://localhost:3000" --unlock 0x000whateverisyouraccountpublickey
 
 You will then only be able to send transcations from this account address.
 If you'r account is locked, you will most likely get an "Error: could not unlock signer account" in your browser console.
