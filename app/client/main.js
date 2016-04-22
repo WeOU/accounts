@@ -21,7 +21,13 @@ Template.account.helpers({
       let account_nbs = new Set([].concat.apply([], Transactions.find({}).map(({from, to})=>[from, to])));
       return Array.from(account_nbs).map(e=>({accountnb:e}))
   },
-
+  local_accounts: () => {
+    let account_nbs = new Set([].concat.apply([], Transactions.find({}).map(({from, to})=>[from, to])));
+    // Filter the account number with the one accessible through the local node
+    return Array.from(account_nbs)
+              .filter(e=>web3.eth.accounts.includes(e))
+              .map(e=>({accountnb:e}))
+  },
   balance: () => TokenInstance.balanceOf(Session.get('account')).toString(10),
   balance2: () => TokenInstance.balanceOf(Session.get('account2')).toString(10),
   sign: () => TokenInstance.symbol(),
